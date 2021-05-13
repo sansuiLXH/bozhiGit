@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        body {
+            margin-top: 20px;
+            margin: 0 auto;
+        }
+        .carousel-inner .item img {
+            width: 100%;
+            height: 300px;
+        }
+        .container .row div {
+            /* position:relative;
+            float:left; */
+        }
+        font {
+            color: #666;
+            font-size: 22px;
+            font-weight: normal;
+            padding-right: 17px;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="width:100%;height:460px;">
+    <div class="row">
+        <div class="col-md-5">
+            <div style="width:440px;border:1px solid #E7E7E7;padding:20px 0 20px 30px;border-radius:5px;margin-top:60px;background:#fff;">
+                <form id="loginForm" class="form-horizontal" action="Login" method="post">
+
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-6">
+                            <!--表单要加上name属性，否则服务器得到不值-->
+                            <input type="text" class="form-control" name="name" id="name" placeholder="请输入用户名" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control" name="password" id="password"
+                                   placeholder="请输入密码" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="verCode" class="col-sm-2 control-label">验证码</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="verCode" id="verCode" placeholder="请输入验证码">
+                        </div>
+                        <div class="col-sm-3">
+                            <img src="Encode" style="width: 190px; height: 70px; cursor: pointer;"
+                                 onclick="changeImage(this)" title="看不清，点击刷新">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox"> 自动登录
+                                </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input id="click" type="submit" width="100" value="登录" name="submit" border="0"
+                                   style="  eight:35px;width:100px;">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

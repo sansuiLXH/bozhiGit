@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reg</title>
+    <script src="js/Province_city.js" defer="defer"></script>
+    <script src="js/jquery-3.5.1.js" ></script>
+    <script>
+        $(function () {
+            $("#regForm").submit(function () {
+                var $name = $("#name").val();
+                var $pwd = $("#pwd").val();
+                //只能输入字母和数字
+                var nametest = /[^\w\/]/ig;
+                var pwdtest = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$;
+                if(!(nametest.test($name))){
+                    if ($name = "" ||  $name.length==0) {
+                        alert("用户名不能为空");
+                        return false;
+                    }
+                }
+
+                if(!(pwdtest.test($pwd))){
+                    if ($pwd = "" ||  $pwd.length==0) {
+                        alert("密码不能为空");
+                        return false;
+                    }
+                }
+                return true;
+            });
+        });
+    </script>
+</head>
+<body>
+<h2>用户注册</h2>
+<!--form的id是为了以后自动登录的时候获取，method就是请求的方法，action就是请求的servlet地址，就是前面配置的那个-->
+<form action="reg" method="post" id="regForm" onsubmit="return checkform()">
+    <!--name属性是给servlet获取值的-->
+    用户名:&nbsp;<input name="name" id="name" type="text">
+    <br>
+    <br>
+    密码:&nbsp;<input name="password" id="pwd" type="password">
+    <br>
+    <br>
+    邮箱:&nbsp;<input name="email" id="email" type="text">
+    <br>
+    <br>
+    省：<select name="province" id="province">
+    <option value="请选择城市">请选择省份</option>
+    </select>
+    <br>
+    市：
+    <select name="city" id="city">
+        <option value="请选择城市">请选择城市</option>
+    </select>
+    <br>
+    爱好 :
+    <div>
+    <label><input name="ch" type="checkbox" value="唱歌" />唱歌 </label>
+    <label><input name="ch" type="checkbox" value="跳舞" />跳舞 </label>
+    <label><input name="ch" type="checkbox" value="打篮球" />打篮球 </label>
+    <label><input name="ch" type="checkbox" value="看书" />看书 </label><br><br>
+    </div>
+    <input value="提交" type="submit">
+</form>
+</body>
+</html>
